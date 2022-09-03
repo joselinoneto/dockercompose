@@ -1,0 +1,19 @@
+# Docker Compose file for Vapor
+#
+
+version: '3.7'
+
+x-common-variables: &common-variables
+  SLEEP_LENGTH: 5
+  POSTGRES_HOST: localhost
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: 123456
+  ENVIRONMENT: env
+
+services:
+  db:
+    image: postgres
+    environment:
+      *common-variables
+    ports:
+      - "5432:5432"
